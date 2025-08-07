@@ -1,0 +1,14 @@
+{
+  "user": {
+    "id": "u123",
+    "name": "Michael",
+    "access": ["dashboard", "stats", "settings"],
+    "order": ["dashboard", "settings", "stats"]
+  },
+  "menuItems": [
+    { "id": "dashboard", "name": "Dashboard", "url": "/dashboard" },
+    { "id": "stats", "name": "Statistiques", "url": "/stats" },
+    { "id": "settings", "name": "Paramètres", "url": "/settings" },
+    { "id": "admin", "name": "Admin", "url": "/admin" }
+  ]
+}
