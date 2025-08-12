@@ -1,14 +1,15 @@
 {
   "user": {
-    "id": "u123",
+    "id": "u001",
     "name": "Michael",
-    "access": ["dashboard", "stats", "settings"],
-    "order": ["dashboard", "settings", "stats"]
+    "access": ["home", "about", "exemple", "readme"],
+    "order": ["home", "about", "exemple", "readme"]
   },
   "menuItems": [
-    { "id": "dashboard", "name": "Dashboard", "url": "/dashboard" },
-    { "id": "stats", "name": "Statistiques", "url": "/stats" },
-    { "id": "settings", "name": "Paramètres", "url": "/settings" },
+    { "id": "home", "name": "home", "url": "/home" },
+    { "id": "about", "name": "about", "url": "/about" },
+    { "id": "exemple", "name": "exemple", "url": "/exemple" },
+    { "id": "readme", "name": "readme", "url": "/readme" },
     { "id": "admin", "name": "Admin", "url": "/admin" }
   ]
 }

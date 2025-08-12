@@ -27,9 +27,10 @@ function SortableItem({ id, item, isEditing }) {
     transition,
     isDragging,
     isOver
-  } = useSortable({ id,
-    disabled: !isEditing
-   });
+  } = useSortable({
+    id,
+    disabled: !isEditing,
+  });
 
   const style = {
     transform: CSS.Transform.toString(transform),
@@ -40,10 +41,10 @@ function SortableItem({ id, item, isEditing }) {
     <div ref={setNodeRef} style={style}>
       <MenuItem
         item={item}
-        attributes={attributes}
-        listeners={listeners ? listeners : undefined}
-        isDragging={isDragging}
-        isOver={isOver}
+        attributes={isEditing ? attributes : undefined}
+        listeners={isEditing ? listeners : undefined}
+        isDragging={!!isDragging}
+        isOver={!!isOver}
         isEditing={isEditing}
       />
     </div>
@@ -64,9 +65,7 @@ function Menu({ user, menuItems, isEditing }) {
 
     const accessibleItems = menuItems.filter(item => accessSet.has(item.id));
     const ordered = user.order.filter(id => accessSet.has(id) && knownIds.has(id));
-    const newItems = accessibleItems
-      .map(item => item.id)
-      .filter(id => !ordered.includes(id));
+    const newItems = accessibleItems.map(item => item.id).filter(id => !ordered.includes(id));
 
     const finalOrder = [...ordered, ...newItems];
 
