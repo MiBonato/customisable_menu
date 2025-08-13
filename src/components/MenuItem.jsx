@@ -22,7 +22,7 @@ function MenuItem({ item, attributes, listeners, isDragging, isOver, isEditing }
     <Link
       to={item.url}
       className={`menu-item ${isActive ? 'active' : ''}`}
-      draggable="false"       // évite le drag natif du navigateur
+      draggable="false"
     >
       {item.name}
     </Link>

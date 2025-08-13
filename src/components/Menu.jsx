@@ -18,6 +18,12 @@ import { useEffect, useState } from 'react';
 import MenuItem from './MenuItem';
 import { saveUserOrder } from '../utils/api';
 
+function arraysEqual(a = [], b = []) {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) return false;
+  return true;
+}
+
 function SortableItem({ id, item, isEditing }) {
   const {
     attributes,
@@ -29,7 +35,7 @@ function SortableItem({ id, item, isEditing }) {
     isOver
   } = useSortable({
     id,
-    disabled: !isEditing,
+    disabled: !isEditing, // drag actif uniquement en édition
   });
 
   const style = {
@@ -41,6 +47,7 @@ function SortableItem({ id, item, isEditing }) {
     <div ref={setNodeRef} style={style}>
       <MenuItem
         item={item}
+        // On ne passe les attributs/listeners qu'en mode édition
         attributes={isEditing ? attributes : undefined}
         listeners={isEditing ? listeners : undefined}
         isDragging={!!isDragging}
@@ -57,22 +64,37 @@ function Menu({ user, menuItems, isEditing }) {
 
   const sensors = useSensors(useSensor(PointerSensor));
 
-  useEffect(() => {
-    if (!user || menuItems.length === 0) return;
+  // Initialise / réconcilie l'ordre à partir des droits + ordre utilisateur
+ useEffect(() => {
+  if (menuItems.length === 0) return;
 
-    const accessSet = new Set(user.access);
-    const knownIds = new Set(menuItems.map(item => item.id));
-
-    const accessibleItems = menuItems.filter(item => accessSet.has(item.id));
-    const ordered = user.order.filter(id => accessSet.has(id) && knownIds.has(id));
-    const newItems = accessibleItems.map(item => item.id).filter(id => !ordered.includes(id));
-
-    const finalOrder = [...ordered, ...newItems];
-
+  if (!user) {
+    // Visiteur : ordre par défaut
+    const defaultOrder = ['home','about','exemple','readme'].filter(id =>
+      menuItems.some(m => m.id === id)
+    );
+    const idSet = new Set(defaultOrder.length ? defaultOrder : menuItems.map(m => m.id));
+    const accessibleItems = menuItems.filter(m => idSet.has(m.id));
+    const finalOrder = (defaultOrder.length ? defaultOrder : accessibleItems.map(i=>i.id));
     setOrderedIds(finalOrder);
     setVisibleItems(accessibleItems);
-  }, [user, menuItems]);
+    return;
+  }
 
+  // Utilisateur loggé (ta logique existante)
+  const accessSet = new Set(user.access);
+  const knownIds = new Set(menuItems.map(item => item.id));
+
+  const accessibleItems = menuItems.filter(item => accessSet.has(item.id));
+  const ordered = user.order.filter(id => accessSet.has(id) && knownIds.has(id));
+  const newItems = accessibleItems.map(item => item.id).filter(id => !ordered.includes(id));
+  const finalOrder = [...ordered, ...newItems];
+
+  setOrderedIds(finalOrder);
+  setVisibleItems(accessibleItems);
+}, [user, menuItems]);
+
+  // Drag & drop
   const handleDragEnd = (event) => {
     const { active, over } = event;
     if (!over || active.id === over.id) return;
@@ -84,13 +106,16 @@ function Menu({ user, menuItems, isEditing }) {
     setOrderedIds(newOrder);
   };
 
-  const handleSave = () => {
-    if (user) saveUserOrder(user.id, orderedIds);
-  };
-
+  // Sauvegarde uniquement si l'ordre a changé quand on quitte l'édition
   useEffect(() => {
-    if (!isEditing && user) handleSave();
-  }, [isEditing]);
+    if (!isEditing && user) {
+      if (!arraysEqual(orderedIds, user.order)) {
+        // l'ordre actuel diffère de l'ordre stocké → on persiste
+        saveUserOrder(user.id, orderedIds);
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isEditing]); // on déclenche seulement sur changement du mode édition
 
   return (
     <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>

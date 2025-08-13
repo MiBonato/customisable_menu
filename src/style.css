@@ -2,7 +2,7 @@ html {
     font-size: 10px;
 }
 body {
-  font-family: Arial, sans-serif;
+  font-family: Arial, sans-serif, sans-serif;
   background-color: #fff;
   margin: 0;
   padding: 0;
@@ -11,21 +11,25 @@ body {
   margin: 0;
   padding: 0;
 }
+/* header */
 .header {
   position: fixed;
+  top: 0;
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
   width: 100%;
-  height: 5rem;
+  height: 6rem;
+  background-color: #fff;
   box-shadow: inset 0 -1.5rem 1rem -1rem rgba(0, 77, 154, 0.1);
+  z-index: 1000;
 }
 .menu-mobile {
   position: absolute;
   top: 0;
   left: 0;
-  width: 5rem;
-  height: 5rem;  
+  width: 6rem;
+  height: 6rem;  
   font-size: 3rem;
   font-weight: bold;
   background: none;
@@ -40,6 +44,7 @@ body {
 .menu-edit {
   display: flex;
   flex-direction: row-reverse;
+  height: 4.5rem;
   padding: 0.75rem;
 }
 .menu-edit button {
@@ -62,14 +67,17 @@ body {
   left: 0;
 }
 .menu-item {
-  margin: 2.5rem 0;
-  padding: 1rem 3rem;
+  padding: 1rem 1.5rem;
   font-size: 2.4rem;
   color: #fff;
-  
+  text-transform: capitalize;
 }
-.menu-container div:first-child .menu-item {
-  margin-top: 1.6rem;
+.menu-container .items-container > div {
+  height: 4rem;
+}
+.menu-container .items-container > div a {
+  display: block;
+  padding-left: 1.5rem;
 }
 .menu-item[aria-disabled="true"] {
   cursor: pointer;
@@ -77,6 +85,32 @@ body {
 .menu-item[aria-disabled="false"] {
   cursor: grab;
 }
+/* body */
+.main-container {
+  display: flex;
+  flex-flow: row nowrap;
+  max-width: 120rem;
+  height: 100%;
+  min-height: calc(100vh - 15rem);
+  margin: 6rem auto 0;
+  padding: 1.5rem 0.75rem;
+}
+.main-container section {
+  flex: 0 1 100%;
+  text-align: center;
+}
+/* footer */
+.footer {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  flex: 0 1 100%;
+  height: 6rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  box-shadow: inset 0 1.5rem 1rem -1rem rgba(0, 77, 154, 0.1);
+}
+
 @media screen and (min-width: 768px) {
   .app-header {
     flex-flow: row;
@@ -91,29 +125,36 @@ body {
     display: flex;
     flex-flow: row-reverse nowrap;
     justify-content: center;
-    width: 100%;
-    height: 5rem;
+    flex: 0 1 100%;
+    height: 6rem;
     background-color: rgba(0,0,0,0);
   }
   .menu-edit {
     position: absolute;
     right: 0;
   }
-  .menu-item {
+
+  .menu-container .items-container .menu-item {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    height: 5rem;
+    height: 6rem;
     margin: 0 1.5rem;
-    padding: 0;
+    padding: 0 0 0 1.5rem;
     color: #000;
   }
   .menu-container div:first-child .menu-item {
     margin-top: 0rem;
   }
-  .items-container {
+  .menu-container .items-container {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
+  }
+  .menu-container .items-container > div {
+    height: 6rem;
+  }
+  .main-container {
+    padding: 1.5rem;
   }
 }
