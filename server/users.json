@@ -1,0 +1,8 @@
+[
+  { "id": "u001", "name": "Michael", "role": "user",
+    "access": ["home","about","exemple","readme"],
+    "order": ["home","about","exemple","readme"] },
+  { "id": "admin", "name": "Admin", "role": "admin",
+    "access": ["home","about","exemple","readme"],
+    "order": ["home","about","exemple","readme"] }
+]

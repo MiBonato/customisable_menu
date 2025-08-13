@@ -1,0 +1,60 @@
+{
+  "users": [
+    {
+      "id": "u001",
+      "name": "Michael",
+      "role": "user",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
+      "id": "admin",
+      "name": "Admin",
+      "role": "admin",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    }
+  ],
+  "menuItems": [
+    {
+      "id": "home",
+      "name": "home",
+      "url": "/"
+    },
+    {
+      "id": "about",
+      "name": "about",
+      "url": "/about"
+    },
+    {
+      "id": "exemple",
+      "name": "exemple",
+      "url": "/exemple"
+    },
+    {
+      "id": "readme",
+      "name": "readme",
+      "url": "/readme"
+    }
+  ]
+}
