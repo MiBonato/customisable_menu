@@ -1,8 +1,26 @@
 [
-  { "id": "u001", "name": "Michael", "role": "user",
+  { 
+    "id": "u003",
+    "username": "Agent",
+    "role": "user",
+    "password": "user003",
     "access": ["home","about","exemple","readme"],
-    "order": ["home","about","exemple","readme"] },
-  { "id": "admin", "name": "Admin", "role": "admin",
-    "access": ["home","about","exemple","readme"],
-    "order": ["home","about","exemple","readme"] }
+    "order": ["home","about","exemple","readme"]
+  },
+  { 
+    "id": "u002",
+    "username": "Admin",
+    "role": "admin",
+    "password": "admin",
+    "access": ["home","about","exemple","readme","admin"],
+    "order": ["home","about","exemple","readme","admin"]
+  },
+  { 
+    "id": "u001",
+    "username": "SuperAdmin",
+    "role": "superadmin",
+    "password": "superadmin",
+    "access": ["home","about","exemple","readme","admin"],
+    "order": ["home","about","exemple","readme","admin"]
+  }
 ]

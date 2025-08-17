@@ -2,5 +2,6 @@
   { "id": "home", "name": "home", "url": "/" },
   { "id": "about", "name": "about", "url": "/about" },
   { "id": "exemple", "name": "exemple", "url": "/exemple" },
-  { "id": "readme", "name": "readme", "url": "/readme" }
+  { "id": "readme", "name": "readme", "url": "/readme" },
+  { "id": "admin", "name": "admin", "url": "/admin" }
 ]

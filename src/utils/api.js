@@ -11,6 +11,20 @@ export async function getMenuItems() {
   return r.json();
 }
 
+export async function getInitialData(userId = 'u001') {
+  const [user, menuItems] = await Promise.all([
+    getUserById(userId),
+    getMenuItems()
+  ]);
+  return { user, menuItems };
+}
+
+export async function getUsers() {
+  const r = await fetch('http://localhost:3001/users');
+  if (!r.ok) throw new Error('Users fetch failed');
+  return r.json();
+}
+
 export async function patchUser(id, payload) {
   const r = await fetch(`${API}/users/${id}`, {
     method: 'PATCH',
@@ -18,15 +32,6 @@ export async function patchUser(id, payload) {
     body: JSON.stringify(payload)
   });
   return r.json();
-}
-
-// Chargement initial (ex: si pas encore de login, on prend u001 par défaut)
-export async function getInitialData(userId = 'u001') {
-  const [user, menuItems] = await Promise.all([
-    getUserById(userId),
-    getMenuItems()
-  ]);
-  return { user, menuItems };
 }
 
 // Sauvegarde de l'ordre du menu

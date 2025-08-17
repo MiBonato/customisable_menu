@@ -1,9 +1,10 @@
 {
   "users": [
     {
-      "id": "u001",
-      "name": "Michael",
+      "id": "u003",
+      "username": "Agent",
       "role": "user",
+      "password": "user003",
       "access": [
         "home",
         "about",
@@ -18,21 +19,32 @@
       ]
     },
     {
-      "id": "admin",
-      "name": "Admin",
+      "id": "u002",
+      "username": "Admin",
       "role": "admin",
+      "password": "admin",
       "access": [
         "home",
         "about",
         "exemple",
-        "readme"
+        "readme",
+        "admin"
       ],
-      "order": [
+      "order": []
+    },
+    {
+      "id": "u001",
+      "username": "SuperAdmin",
+      "role": "superadmin",
+      "password": "superadmin",
+      "access": [
         "home",
         "about",
         "exemple",
-        "readme"
-      ]
+        "readme",
+        "admin"
+      ],
+      "order": []
     }
   ],
   "menuItems": [
@@ -55,6 +67,11 @@
       "id": "readme",
       "name": "readme",
       "url": "/readme"
+    },
+    {
+      "id": "admin",
+      "name": "admin",
+      "url": "/admin"
     }
   ]
 }

@@ -6,7 +6,7 @@ function MenuItem({ item, attributes, listeners, isDragging, isOver, isEditing }
   const editableProps = {
     ...attributes,
     ...listeners,
-    className: `menu-item ${isDragging ? 'dragging' : ''}`,
+    className: `menu-item flex s-col jc-center ${isDragging ? 'dragging' : ''}`,
     'aria-disabled': 'true'
   };
 
@@ -21,7 +21,7 @@ function MenuItem({ item, attributes, listeners, isDragging, isOver, isEditing }
   return (
     <Link
       to={item.url}
-      className={`menu-item ${isActive ? 'active' : ''}`}
+      className={`menu-item flex s-col jc-center ${isActive ? 'active' : ''}`}
       draggable="false"
     >
       {item.name}
