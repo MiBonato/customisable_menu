@@ -1,7 +1,7 @@
 function EditButton({ isEditing, onToggle }) {
   return (
     <button onClick={onToggle} >
-      {isEditing ? '⚙️' : '🔒' }
+      {isEditing ? '🔒' : '⚙️' }
     </button>
   );
 }

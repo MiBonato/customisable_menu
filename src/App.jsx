@@ -72,9 +72,7 @@ function App() {
         />
 
         <main className="main-container flex s-row">
-          {/* One-shot redirect after login/logout */}
           {redirectHome && <Navigate to="/" replace />}
-
           <Routes>
             <Route path="/" element={<Home />}/>
             <Route path="/home" element={<Navigate to="/" replace />} />

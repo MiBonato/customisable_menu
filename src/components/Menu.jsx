@@ -35,7 +35,7 @@ function SortableItem({ id, item, isEditing }) {
     isOver
   } = useSortable({
     id,
-    disabled: !isEditing, // drag actif uniquement en édition
+    disabled: !isEditing, // drag actif only in edit mode
   });
 
   const style = {
@@ -47,7 +47,7 @@ function SortableItem({ id, item, isEditing }) {
     <div ref={setNodeRef} style={style}>
       <MenuItem
         item={item}
-        // On ne passe les attributs/listeners qu'en mode édition
+        // pass attributs/listeners only in edit
         attributes={isEditing ? attributes : undefined}
         listeners={isEditing ? listeners : undefined}
         isDragging={!!isDragging}
@@ -64,12 +64,12 @@ function Menu({ user, menuItems, isEditing }) {
 
   const sensors = useSensors(useSensor(PointerSensor));
 
-  // Initialise / réconcilie l'ordre à partir des droits + ordre utilisateur
+  // Initialize order from right + user order
  useEffect(() => {
   if (menuItems.length === 0) return;
 
   if (!user) {
-    // Visiteur : ordre par défaut
+    // Visitor : default order
     const defaultOrder = ['home','about','exemple','readme'].filter(id =>
       menuItems.some(m => m.id === id)
     );
@@ -81,7 +81,6 @@ function Menu({ user, menuItems, isEditing }) {
     return;
   }
 
-  // Utilisateur loggé (ta logique existante)
   const accessSet = new Set(user.access);
   const knownIds = new Set(menuItems.map(item => item.id));
 
@@ -106,16 +105,15 @@ function Menu({ user, menuItems, isEditing }) {
     setOrderedIds(newOrder);
   };
 
-  // Sauvegarde uniquement si l'ordre a changé quand on quitte l'édition
+  // save only if order has changed
   useEffect(() => {
     if (!isEditing && user) {
       if (!arraysEqual(orderedIds, user.order)) {
-        // l'ordre actuel diffère de l'ordre stocké → on persiste
+        // if current order is different from saved order
         saveUserOrder(user.id, orderedIds);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [isEditing]); // on déclenche seulement sur changement du mode édition
+  }, [isEditing]); // trigger only on change in edit mode
 
   return (
     <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>

@@ -1,8 +1,180 @@
 {
   "users": [
     {
+      "id": "u012",
+      "username": "Agent",
+      "group": "group_3",
+      "role": "user",
+      "password": "user012",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
+      "id": "u011",
+      "username": "Agent",
+      "group": "group_3",
+      "role": "user",
+      "password": "user011",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
+      "id": "u010",
+      "username": "admin",
+      "group": "group_3",
+      "role": "user",
+      "password": "user010",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
+      "id": "u009",
+      "username": "Agent",
+      "group": "group_2",
+      "role": "user",
+      "password": "user009",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
+      "id": "u008",
+      "username": "Agent",
+      "group": "group_2",
+      "role": "user",
+      "password": "user008",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
+      "id": "u007",
+      "username": "Agent",
+      "group": "group_2",
+      "role": "user",
+      "password": "user007",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
+      "id": "u006",
+      "username": "Agent",
+      "group": "group_2",
+      "role": "user",
+      "password": "user006",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
+      "id": "u005",
+      "username": "admin",
+      "group": "group_2",
+      "role": "user",
+      "password": "user005",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
+      "id": "u004",
+      "username": "Agent",
+      "group": "group_1",
+      "role": "user",
+      "password": "user004",
+      "access": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ],
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme"
+      ]
+    },
+    {
       "id": "u003",
       "username": "Agent",
+      "group": "group_1",
       "role": "user",
       "password": "user003",
       "access": [
@@ -21,6 +193,7 @@
     {
       "id": "u002",
       "username": "Admin",
+      "group": "group_1",
       "role": "admin",
       "password": "admin",
       "access": [
@@ -30,11 +203,18 @@
         "readme",
         "admin"
       ],
-      "order": []
+      "order": [
+        "home",
+        "about",
+        "exemple",
+        "readme",
+        "admin"
+      ]
     },
     {
       "id": "u001",
       "username": "SuperAdmin",
+      "group": "",
       "role": "superadmin",
       "password": "superadmin",
       "access": [
