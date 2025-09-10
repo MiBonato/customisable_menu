@@ -1,12 +1,72 @@
-# React + Vite
+# Customisable Menu
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and customisable navigation menu built with React.  
+Users can reorder the menu items according to their preferences, and the structure adapts dynamically to permissions and screen sizes.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Responsive design**  
+  - Horizontal menu on desktop.  
+  - Vertical menu on mobile.  
 
-## Expanding the ESLint configuration
+- **Dynamic menu generation**  
+  - Items loaded from a JSON object (`name`, `url`, `sectionId`).  
+  - New sections are automatically added at the end.  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- **User management**  
+  - Non-logged users → default order.  
+  - Logged users → personalised order is restored.  
+  - Unauthorized sections are hidden.  
+
+- **Edit mode**  
+  - Toggle edit mode with an icon.  
+  - Menu items become draggable.  
+  - New order is saved to the backend.  
+
+## 📂 Project Structure (suggested)
+
+src
+ ├── components
+ │   ├── EditButton.jsx
+ │   ├── Footer.jsx
+ │   ├── Header.jsx
+ │   ├── LoginModal.jsx
+ │   ├── Menu.jsx
+ │   └── MenuItem.jsx
+ ├── content
+ │   ├── 404.jsx
+ │   ├── About.jsx
+ │   ├── Accessible.jsx
+ │   ├── Admin.jsx
+ │   ├── Exemple.jsx
+ │   ├── Homepage.jsx
+ │   └── Readme.jsx
+ ├── style
+ │   ├── checkbox.css
+ │   ├── grid.css
+ │   └── style.css
+ ├── utils
+ │   ├── access.jsx
+ │   ├── api.jsx
+ ├── App.jsx
+ └── main.jsx
+
+
+## 🛠️ Installation
+
+- **Clone the repository**
+git clone https://github.com/your-username/customisable_menu.git
+
+cd customisable_menu
+
+- **Install dependencies**
+npm install
+
+- **Start development server**
+npm run dev
+
+
+## 🧪 Usage
+
+Edit src/data/menuItems.json to configure default menu items.
+Use the edit button to reorder items when logged in.

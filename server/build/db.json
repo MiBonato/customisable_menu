@@ -48,13 +48,15 @@
         "home",
         "about",
         "exemple",
-        "readme"
+        "readme",
+        "admin"
       ],
       "order": [
         "home",
         "about",
         "exemple",
-        "readme"
+        "readme",
+        "admin"
       ]
     },
     {
@@ -143,13 +145,15 @@
         "home",
         "about",
         "exemple",
-        "readme"
+        "readme",
+        "admin"
       ],
       "order": [
         "home",
         "about",
         "exemple",
-        "readme"
+        "readme",
+        "admin"
       ]
     },
     {
@@ -224,7 +228,13 @@
         "readme",
         "admin"
       ],
-      "order": []
+      "order": [
+        "home",
+        "about",
+        "readme",
+        "exemple",
+        "admin"
+      ]
     }
   ],
   "menuItems": [

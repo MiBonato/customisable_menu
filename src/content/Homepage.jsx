@@ -7,8 +7,11 @@ export default function Home() {
               items (when edit mode is enabled) and navigate between different pages.
             </p>
             <p>
+              Log in to personalise your menu order or browse as a guest to see the default layout.
+            </p>
+            <p>
               Use the top menu to explore the various sections and see how the layout
               adapts based on your access rights.
             </p>
-        </section>;
+          </section>;
 }
